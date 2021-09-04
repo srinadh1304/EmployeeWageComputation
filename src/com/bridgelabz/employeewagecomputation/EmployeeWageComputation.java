@@ -3,13 +3,10 @@ package com.bridgelabz.employeewagecomputation;
 public class EmployeeWageComputation {
 	static final int PART_TIME=1;
 	static final int FULL_TIME=2;
-	static final int WAGE_PER_HOUR=20;
-	static final int FULL_WORKING_HOURS=100;
-	static final int TOTAL_WORKING_DAYS=20;
-	static int employeeWageCalculator() {
+	static int employeeWageCalculator(String company,int employeeWagePerHour,int noOfWorkingDays,int maximumHoursPerMonth) {
 		int employeeHours=0,employeeWage=0,working_days=0;
 		
-		while(employeeHours<FULL_WORKING_HOURS && working_days<TOTAL_WORKING_DAYS)
+		while(employeeHours<maximumHoursPerMonth && working_days<noOfWorkingDays)
 		{
 			int employeeCheck=(int)Math.floor((Math.random()*10)%3);
 			switch(employeeCheck)
@@ -24,16 +21,17 @@ public class EmployeeWageComputation {
 				break;
 			}
 			working_days++;
-
+			System.out.println("Day#: "+working_days+" Emp Hr: "+employeeHours);
 
 		}			
-		employeeWage=employeeHours*WAGE_PER_HOUR;
+		employeeWage=employeeHours*employeeWagePerHour;
+		System.out.println("Total Employee wage for company: "+company+" is "+employeeWage);
 		return employeeWage;
 	}
 	public static void main(String[] args) {
 		System.out.println("****** Welcome to Employee Wage Computation ******");
-		int employeeWage=employeeWageCalculator();
-		System.out.println("Employee Wage: "+employeeWage);
+		employeeWageCalculator("Apple", 20, 2, 10);
+		employeeWageCalculator("Reliance", 10, 4, 20);
 		
 	}
 }
