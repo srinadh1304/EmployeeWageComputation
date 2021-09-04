@@ -10,17 +10,17 @@ public class EmployeeWageComputation {
 		int employeeCheck=(int)Math.floor((Math.random()*10)%3);
 		int employeeHours=0;
 		int employeeWage=0;
-		if(employeeCheck==FULL_TIME)
+		switch(employeeCheck)
 		{
+		case FULL_TIME:
 			employeeHours=8;
-		}
-		else if(employeeCheck==PART_TIME)
-		{
+			break;
+		case PART_TIME:
 			employeeHours=4;
-		}
-		else
-		{
+			break;
+		default:
 			employeeHours=0;
+			break;
 		}
 		employeeWage=employeeHours*WAGE_PER_HOUR;
 		System.out.println("Employee wage : "+employeeWage);
