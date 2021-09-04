@@ -6,9 +6,9 @@ public class EmployeeWageComputation {
 	static final int WAGE_PER_HOUR=20;
 	static final int FULL_WORKING_HOURS=100;
 	static final int TOTAL_WORKING_DAYS=20;
-	public static void main(String[] args) {
+	static int employeeWageCalculator() {
 		int employeeHours=0,employeeWage=0,working_days=0;
-		System.out.println("****** Welcome to Employee Wage Computation ******");
+		
 		while(employeeHours<FULL_WORKING_HOURS && working_days<TOTAL_WORKING_DAYS)
 		{
 			int employeeCheck=(int)Math.floor((Math.random()*10)%3);
@@ -28,6 +28,12 @@ public class EmployeeWageComputation {
 
 		}			
 		employeeWage=employeeHours*WAGE_PER_HOUR;
-		System.out.println("Employee wage for a  month : "+employeeWage);
+		return employeeWage;
+	}
+	public static void main(String[] args) {
+		System.out.println("****** Welcome to Employee Wage Computation ******");
+		int employeeWage=employeeWageCalculator();
+		System.out.println("Employee Wage: "+employeeWage);
+		
 	}
 }
